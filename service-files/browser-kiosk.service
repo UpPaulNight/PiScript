@@ -1,0 +1,15 @@
+[Unit]
+Description=Open display project by launching browser in kiosk mode on startup
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/firefox --kiosk /home/pauls/Downloads/Gemba-Board-Site/index.html --no-remote --disable-sync --disable-extensions
+Restart=always
+RestartSec=2s
+Environment=WAYLAND_DISPLAY=wayland-0
+Environment=XDG_RUNTIME_DIR=%t
+Type=simple
+
+[Install]
+WantedBy=graphical-session.target
