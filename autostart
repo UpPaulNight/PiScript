@@ -1,0 +1,1 @@
+(sleep 1; /usr/bin/wlr-randr --output "HDMI-A-1" --mode 720x480@60) &
