@@ -1,0 +1,8 @@
+[Unit]
+Description=Turn the tv on in the morning
+
+[Service]
+user=pauls
+Type=oneshot
+WorkingDirectory=/home/pauls/PiScript/scripts
+ExecStart=/home/pauls/PiScript/scripts/turn_on.sh
