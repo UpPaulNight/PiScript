@@ -19,12 +19,3 @@
 # For more information see the manual pages of crontab(5) and cron(8)
 #
 # m h  dom mon dow   command
-
-# On Mon to Thu turn the screen off at 7:55 PM
-55 19 * * 1-4 bash /home/pauls/Downloads/PiScript/scripts/turn_off.sh
-
-# On Fri turn the screen off at 4:25 PM
-25 16 * * 5 /home/pauls/Downloads/PiScript/scripts/turn_off.sh
-
-# Every morning turn the screen on at 5:30 AM
-30 5 * * 1-5 /home/pauls/Downloads/PiScript/scripts/turn_on.sh
