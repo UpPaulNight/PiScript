@@ -1,5 +1,5 @@
 [Unit]
-Description=Turn TV off at specific times
+Description=Turn TV on at specific times
 
 [Timer]
 OnCalendar=Mon..Fri 5:30
