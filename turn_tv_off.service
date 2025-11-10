@@ -1,0 +1,8 @@
+[Unit]
+Description=Trigger the turn tv off script
+
+[Service]
+user=pauls
+Type=oneshot
+WorkingDirectory=/home/pauls/PiScript/scripts
+ExecStart=/home/pauls/PiScript/scripts/turn_off.sh
