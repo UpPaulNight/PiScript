@@ -22,8 +22,26 @@ wlopm --on "HDMI-A-1"
 # Wake the TV
 cec-ctl -d /dev/cec0 --to 0 --image-view-on
 
-# Wait a little bit for the TV to fully turn on
-sleep 2
+# Wait for the TV to fully turn on
+max_retries=10
+count=0
+
+while [ $count -lt $max_retries ]; do
+    pwr_state=$(cec-ctl -d/dev/cec0 --to 0 --give-device-power-status | grep -oP 'pwr-state:\s+\w+\s+\(\K[^)]+')
+    echo "Attempt $((count + 1)): pwr-state = $pwr_state"
+
+    if [ "$pwr_state" = "0x00" ]; then
+        echo "Power state is ON (0x00)."
+        break
+    fi
+
+    count=$((count + 1))
+    sleep 1  # optional delay between retries
+done
+
+if [ $count -eq $max_retries ]; then
+    echo "Max retries reached without detecting pwr-state 0x00."
+fi
 
 # Set the resolution
 source ../autostart
