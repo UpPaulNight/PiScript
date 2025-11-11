@@ -22,4 +22,8 @@ wlopm --on "HDMI-A-1"
 # Wake the TV
 cec-ctl -d /dev/cec0 --to 0 --image-view-on
 
+# Wait a little bit for the TV to fully turn on
+sleep 2
+
+# Set the resolution
 source ../autostart
