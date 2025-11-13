@@ -1,0 +1,9 @@
+[Unit]
+Description=Correct the resolution of the TV every 2 minutes
+
+[Timer]
+Persistent=true
+OnCalendar=*:0/2
+
+[Install]
+WantedBy=timers.target
