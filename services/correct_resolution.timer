@@ -1,0 +1,11 @@
+[Unit]
+Description=Correct the resolution of the TV every 2 minutes
+
+[Timer]
+Persistent=true
+OnCalendar=Mon..Fri *-*-* 05:30,35,40,45,50,55:00
+OnCalendar=Mon..Fri *-*-* 06,07,08,09,10,11,12,13,14,15,16:0,5,10,15,20,25,30,35,40,45,50,55:00
+OnCalendar=Mon..Fri *-*-* 17:00,05,10,15,20,25,30:00
+
+[Install]
+WantedBy=timers.target
