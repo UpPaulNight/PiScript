@@ -25,14 +25,14 @@ fi
 current_transform=$(/usr/bin/wlr-randr | grep Transform | xargs)
 
 # Expected transform
-expected_transform="Transform: 90"
+expected_transform="Transform: 180"
 
 # Check if current transform matches expected
 if [ "$current_transform" != "$expected_transform" ]; then
     echo "Current transform: $current_transform"
     echo "Expected transform: $expected_transform"
     echo "Fixing transform..."
-    /usr/bin/wlr-randr --output "HDMI-A-1" --transform 90
+    /usr/bin/wlr-randr --output "HDMI-A-1" --transform 180
     echo "Transform corrected."
 else
     echo "Transform is already correct: $current_transform"
