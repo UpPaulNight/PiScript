@@ -6,11 +6,17 @@ export XDG_RUNTIME_DIR="/run/user/1000" # 1000 should be the user id. Beware
 
 # Wait until HDMI is connected
 echo "Testing hdmi"
+attempt=0
+max_attempts=10
 until wlr-randr | grep "HDMI-A-1"; do
-    echo "Waiting for HDMI input..."
+    attempt=$((attempt + 1))
+    if [ $attempt -ge $max_attempts ]; then
+        echo "HDMI input not detected after $max_attempts attempts. Exiting."
+        exit 0
+    fi
+    echo "Waiting for HDMI input... (Attempt $attempt/$max_attempts)"
     sleep 2
 done
-
 echo "HDMI input detected."
 
 # Register the tv on port
