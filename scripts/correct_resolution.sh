@@ -4,6 +4,15 @@
 export WAYLAND_DISPLAY="wayland-0"
 export XDG_RUNTIME_DIR="/run/user/1000" # 1000 *should* be the user id. Beware
 
+# Test if HDMI is connected
+echo "Testing hdmi"
+if ! wlr-randr | grep -q "HDMI-A-1"; then
+    echo "HDMI input not detected. Exiting."
+    exit 0
+fi
+
+echo "HDMI input detected."
+
 # Get current resolution
 current_resolution=$(/usr/bin/wlr-randr | grep '(current)' | xargs)
 
