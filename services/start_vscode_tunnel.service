@@ -1,0 +1,10 @@
+[Unit]
+Description=VS Code Tunnel Service
+After=network.target
+
+[Service]
+ExecStart=code tunnel
+User=pauls
+
+[Install]
+WantedBy=multi-user.target
