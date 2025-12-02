@@ -1,2 +1,5 @@
 .vscode
 autostart
+*.log
+__pycache__
+shutdown_counter.txt

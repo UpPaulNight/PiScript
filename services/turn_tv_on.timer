@@ -3,6 +3,7 @@ Description=Turn TV on at specific times
 
 [Timer]
 OnCalendar=Mon..Fri 5:30
+OnBootSec=1min
 
 [Install]
 WantedBy=timers.target

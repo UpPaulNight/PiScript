@@ -5,4 +5,4 @@ Description=Correct the resolution of the TV
 user=pauls
 Type=oneshot
 WorkingDirectory=/home/pauls/PiScript/scripts
-ExecStart=/home/pauls/PiScript/scripts/correct_resolution.sh
+ExecStart=/usr/bin/python3 /home/pauls/PiScript/scripts/correct_resolution.py
