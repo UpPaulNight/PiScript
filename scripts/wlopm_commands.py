@@ -3,6 +3,11 @@ from get_logger import get_logger
 
 logger = get_logger(__name__)
 
+"""
+It is expected that the processes calling these functions will handle locking
+and mutual exclusion as needed.
+"""
+
 def enable_hdmi_out(env: dict) -> bool:
     # Enable HDMI output
 

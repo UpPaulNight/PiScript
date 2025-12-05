@@ -3,6 +3,10 @@ from get_logger import get_logger
 
 logger = get_logger(__name__)
 
+"""
+It is expected that the processes calling these functions will handle locking
+and mutual exclusion as needed.
+"""
 
 def set_display_mode(mode: str, transform: str, env: dict) -> bool:
     result = subprocess.run(['/usr/bin/wlr-randr', '--output', 'HDMI-A-1', '--mode', mode, '--transform', transform], capture_output=True, text=True, env=env)
