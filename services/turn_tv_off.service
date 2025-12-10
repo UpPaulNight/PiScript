@@ -5,4 +5,4 @@ Description=Trigger the turn tv off script
 user=pauls
 Type=oneshot
 WorkingDirectory=/home/pauls/PiScript/scripts
-ExecStart=/usr/bin/python3 /home/pauls/PiScript/scripts/turn_off.py
+ExecStart=/home/pauls/PiScript/.venv/bin/python3 /home/pauls/PiScript/scripts/turn_off.py

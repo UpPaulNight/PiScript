@@ -5,4 +5,4 @@ Description=Turn the tv on in the morning
 user=pauls
 Type=oneshot
 WorkingDirectory=/home/pauls/PiScript/scripts
-ExecStart=/usr/bin/python3 /home/pauls/PiScript/scripts/turn_on.py
+ExecStart=/home/pauls/PiScript/.venv/bin/python3 /home/pauls/PiScript/scripts/turn_on.py
