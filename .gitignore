@@ -4,3 +4,4 @@ autostart
 __pycache__
 shutdown_counter.txt
 scripts/config.py
+*.lock
