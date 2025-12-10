@@ -1,6 +1,6 @@
 # Upgrade Instructions
 
-## Commit d304027
+## Commit 46a7a27
 
 Fix possible race condition
 
@@ -19,6 +19,8 @@ Fix possible race condition
     . .venv/bin/activate
     pip install -r requirements.txt
     ```
+
+4. Copy the new service files into /etc/systemd/system and daemon-reload
 
 ## Commit 87e72a1
 
