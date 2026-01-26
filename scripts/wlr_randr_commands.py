@@ -77,6 +77,10 @@ def test_expected_resolution(mode: str, env: dict) -> bool:
             import re
             if re.search(expected_line, line):
                 return True
+            
+            # Log what the unexpected resolution is
+            logger.debug(f"Current resolution line: {line.strip()}")
+            
     return False
     
 def test_expected_transform(transform: str, env: dict) -> bool:
@@ -93,4 +97,8 @@ def test_expected_transform(transform: str, env: dict) -> bool:
     for line in output.splitlines():
         if 'Transform:' in line and transform in line:
             return True
+
+        elif 'Transform:' in line:
+            logger.debug(f"Current transform line: {line.strip()}")
+        
     return False
