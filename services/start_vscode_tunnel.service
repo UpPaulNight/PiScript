@@ -1,11 +1,12 @@
 [Unit]
 Description=VS Code Tunnel Service
-Wants=network-online.target
-After=network-online.target
+Wants=NetworkManager-wait-online.service
+After=NetworkManager-wait-online.service
 
 [Service]
 ExecStart=code tunnel
-User=pauls
+Restart=on-failure
+RestartSec=10s
 
 [Install]
 WantedBy=multi-user.target
