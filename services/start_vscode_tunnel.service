@@ -5,6 +5,7 @@ After=NetworkManager-wait-online.service
 
 [Service]
 ExecStart=code tunnel
+User=pauls
 Restart=on-failure
 RestartSec=10s
 
