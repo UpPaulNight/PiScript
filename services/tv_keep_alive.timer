@@ -1,0 +1,17 @@
+[Unit]
+Description=Periodically ping the TVs power status
+
+[Timer]
+# Monday through Thursday we want to do it every morning before work until 5 AM and evenings after work starting at 6 PM
+OnCalendar=Mon..Thu *-*-* 00,01,02,03,04:00,30
+OnCalendar=Mon..Thu *-*-* 05:00
+OnCalendar=Mon..Thu *-*-* 18,19,20,21,22,23:00,30
+# Friday we want to do it every morning before work and evenings after work every 30 minutes BUT starting at 5 PM
+OnCalendar=Fri *-*-* 00,01,02,03,04:00,30
+OnCalendar=Fri *-*-* 05:00
+OnCalendar=Fri *-*-* 17,18,19,20,21,22,23:00,30
+# Weekends we want to do it every hour on the hour
+OnCalendar=Sat,Sun *-*-* *:00/30
+
+[Install]
+WantedBy=timers.target

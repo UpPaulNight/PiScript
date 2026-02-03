@@ -1,0 +1,8 @@
+[Unit]
+Description=Ping the TVs power status
+
+[Service]
+user=pauls
+Type=oneshot
+WorkingDirectory=/home/pauls/PiScript/scripts
+ExecStart=/home/pauls/PiScript/.venv/bin/python3 /home/pauls/PiScript/scripts/tv_keep_alive.py
