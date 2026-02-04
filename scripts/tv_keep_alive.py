@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from cec_ctl_commands import is_tv_on
+from wlopm_commands import is_hdmi_enabled
 from get_env import get_environment
 from get_logger import get_logger
 from sanity_checks import run_sanity_checks
@@ -32,6 +33,11 @@ def test_alive():
             logger.debug('Checking if TV is on...')
             on_status = is_tv_on(env)
             logger.debug(f'TV on status: {on_status}')
+
+            # Get the HDMI output status
+            logger.debug('Checking if HDMI output is enabled...')
+            hdmi_status = is_hdmi_enabled(env)
+            logger.debug(f'HDMI output enabled: {hdmi_status}')
     
     except Timeout:
         logger.critical('Could not acquire lock within 120 seconds. Something else must have failed catastrophically.')

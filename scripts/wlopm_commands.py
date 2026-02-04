@@ -1,3 +1,4 @@
+import json
 import subprocess
 from get_logger import get_logger
 
@@ -48,3 +49,38 @@ def disable_hdmi_out(env: dict) -> bool:
         return False
     
     return True
+
+def is_hdmi_enabled(env: dict) -> bool:
+    # Check if HDMI output is enabled
+
+    # Equivalent of running `wlopm --json` and parsing the output
+    process_result = subprocess.run(['/usr/bin/wlopm', '--json'], capture_output=True, text=True, env=env)
+
+    logger.debug("wlopm output for HDMI status check:")
+    logger.debug(process_result.stdout.strip())
+
+    if process_result.returncode != 0:
+        logger.error("Failed to get HDMI output status.")
+        logger.error(process_result.stderr.strip())
+        return False
+    
+    if 'ERROR' in process_result.stderr:
+        logger.error("Failed to get HDMI output status.")
+        logger.error(process_result.stderr.strip())
+        return False
+
+    try:
+        result: dict[str, str] = json.loads(process_result.stdout)[0]
+    except json.JSONDecodeError:
+        logger.error("Failed to parse wlopm output as JSON.")
+        return False
+    
+    # I have to be honest, I don't know what this thing errors if I ask for
+    # JSON. That's why I'm logging it ig.
+
+    power_mode = result.get('power_mode', 'unknown')
+
+    if power_mode == 'on':
+        return True
+    else:
+        return False
