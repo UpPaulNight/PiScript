@@ -6,6 +6,7 @@ from config import mode, transform
 from get_logger import get_logger
 from sanity_checks import run_sanity_checks
 from filelock import Timeout, FileLock
+from cec_client_commands import demand_tv_on_politely
 
 
 def correct_resolution():
@@ -18,6 +19,9 @@ def correct_resolution():
         exit(1)
 
     env = get_environment()
+
+    # Please Linux, let the TV turn on
+    demand_tv_on_politely(env)
 
     lock = FileLock('resolution_lock.lock', timeout=5)
 
